@@ -374,7 +374,7 @@ class ItemDetailView(DetailView):
     model = Item
     template_name = "product.html"
 
-
+# view function to remove or add item
 @login_required
 def add_to_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
