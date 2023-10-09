@@ -5,4 +5,4 @@ An e commerce website built with Django.
 
 <img width="1128" alt="Screenshot 2023-10-09 at 11 11 47 AM" src="https://github.com/SomilKSharma/e-commerce-django/assets/120346284/63744c60-c6ca-45d2-ab00-63f315d4382b">
 
-![Uploading Screenshot 2023-10-09 at 11.11.59 AM.png…]()
+
