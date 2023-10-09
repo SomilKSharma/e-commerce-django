@@ -111,25 +111,6 @@
 </main>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function () {
-    // Filter products when a category link is clicked
-    $('.nav-link').click(function (e) {
-      e.preventDefault();
-      const category = $(this).data('category');
 
-      // Hide all products
-      $('#product-list .col-lg-3').hide();
-
-      if (category === 'all') {
-        // Show all products if 'All' is selected
-        $('#product-list .col-lg-3').show();
-      } else {
-        // Show products in the selected category
-        $('#product-list .col-lg-3[data-category="' + category + '"]').show();
-      }
-    });
-  });
-</script>
 
 {% endblock content %}
