@@ -465,16 +465,16 @@ def remove_single_item_from_cart(request, slug):
         return redirect("core:product", slug=slug)
 
 
-def get_coupon(request, code):
-    try:
-        coupon = Coupon.objects.get(code=code)
-        return coupon
-    except ObjectDoesNotExist:
-        messages.info(request, "This coupon does not exist")
-        return redirect("core:checkout")
-
-
 class AddCouponView(View):
+
+    def get_coupon(self, code):
+        try:
+            coupon = Coupon.objects.get(code=code)
+            return coupon
+        except Coupon.DoesNotExist:
+            messages.info(self.request, "This coupon does not exist")
+            return None  # Return None if the coupon does not exist
+
     def post(self, *args, **kwargs):
         form = CouponForm(self.request.POST or None)
         if form.is_valid():
@@ -482,11 +482,15 @@ class AddCouponView(View):
                 code = form.cleaned_data.get('code')
                 order = Order.objects.get(
                     user=self.request.user, ordered=False)
-                order.coupon = get_coupon(self.request, code)
-                order.save()
-                messages.success(self.request, "Successfully added coupon")
+                coupon = self.get_coupon(code)
+                if coupon:
+                    order.coupon = coupon
+                    order.save()
+                    messages.success(self.request, "Successfully added coupon")
+                else:
+                    messages.info(self.request, "Invalid coupon code")
                 return redirect("core:checkout")
-            except ObjectDoesNotExist:
+            except Order.DoesNotExist:
                 messages.info(self.request, "You do not have an active order")
                 return redirect("core:checkout")
 
