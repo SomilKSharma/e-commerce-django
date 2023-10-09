@@ -58,11 +58,13 @@ class Item(models.Model):
         return reverse("core:product", kwargs={
             'slug': self.slug
         })
+    # function to add element ot the cart
 
     def get_add_to_cart_url(self):
         return reverse("core:add-to-cart", kwargs={
             'slug': self.slug
         })
+    # function to remove item form the cart
 
     def get_remove_from_cart_url(self):
         return reverse("core:remove-from-cart", kwargs={
