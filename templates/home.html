@@ -18,20 +18,19 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#" data-category="all">All</a>
+            <a class="nav-link filter" href="#" data-category="all">All</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-category="S">Shirts</a>
+            <a class="nav-link filter" href="#" data-category="S">Shirts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-category="SW">Sportswear</a>
+            <a class="nav-link filter" href="#" data-category="SW">Sportswear</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-category="OW">Outwear</a>
+            <a class="nav-link filter" href="#" data-category="OW">Outwear</a>
           </li>
         </ul>
-      </div>
-      <!-- Collapsible content -->
+        <!-- Collapsible content -->
     </nav>
     <!-- Navbar -->
 
@@ -41,7 +40,9 @@
       <div class="col-lg-3 col-md-6 mb-4 {{ item.category }}">
         <div class="card">
           <div class="view overlay">
-            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.title }}">
+            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.title }}"
+              style="max-width: 400px; max-height: 400px; width: auto; height: auto;">
+
             <a href="{{ item.get_absolute_url }}">
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -128,7 +129,7 @@
     filterProducts('all');
 
     // Event listener for navigation links
-    $('.nav-link').click(function (event) {
+    $('.filter').click(function (event) {
       event.preventDefault();
       const category = $(this).data('category');
       filterProducts(category);
