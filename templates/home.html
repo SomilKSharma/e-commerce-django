@@ -59,7 +59,7 @@
             <h5>
               <strong>
                 <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}</a>
-                <span class="badge badge-pill badge-primary">NEW</span>
+                <span class="badge badge-pill {{item.get_label_display}}-color">NEW</span>
               </strong>
             </h5>
             <h4 class="font-weight-bold blue-text">
