@@ -1,6 +1,6 @@
 import random
 import string
-
+# Import necessary modules
 import stripe
 from django.conf import settings
 from django.contrib import messages
@@ -11,15 +11,19 @@ from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, View
-
+# Import forms and models from application
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
 from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
-
+# Set the Stripe API key
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
+# Function to create a random reference code
 
 
 def create_ref_code():
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=20))
+
+# View for displaying products
 
 
 def products(request):
@@ -27,6 +31,8 @@ def products(request):
         'items': Item.objects.all()
     }
     return render(request, "products.html", context)
+
+# Function to check if a form is valid
 
 
 def is_valid_form(values):
