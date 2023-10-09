@@ -1,8 +1,15 @@
 # e-commerce-django
 An e commerce website built with Django.
 
-<img width="1121" alt="Screenshot 2023-10-09 at 11 09 56 AM" src="https://github.com/SomilKSharma/e-commerce-django/assets/120346284/21dfbb0c-043a-4c4d-8ff1-e9ad5b2280ea">
 
-<img width="1128" alt="Screenshot 2023-10-09 at 11 11 47 AM" src="https://github.com/SomilKSharma/e-commerce-django/assets/120346284/63744c60-c6ca-45d2-ab00-63f315d4382b">
+<img width="1081" alt="Screenshot 2023-10-09 at 11 39 18 PM" src="https://github.com/SomilKSharma/e-commerce-django/assets/120346284/a3eaec43-d611-4ca6-9ba4-ecbc83582139">
 
 
+<img width="1085" alt="Screenshot 2023-10-09 at 11 39 31 PM" src="https://github.com/SomilKSharma/e-commerce-django/assets/120346284/c3aeaca4-8b0f-4dcc-9706-6b4bda0dc5d4">
+
+
+
+<img width="1067" alt="Screenshot 2023-10-09 at 11 39 54 PM" src="https://github.com/SomilKSharma/e-commerce-django/assets/120346284/c6059c1e-2d16-42c3-b04c-f9854a6c10b5">
+
+
+<img width="1130" alt="Screenshot 2023-10-09 at 11 40 03 PM" src="https://github.com/SomilKSharma/e-commerce-django/assets/120346284/da631126-6820-423a-827b-8c409c190262">
