@@ -21,21 +21,15 @@
             <a class="nav-link" href="#" data-category="all">All</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-category="Shirt">Shirts</a>
+            <a class="nav-link" href="#" data-category="S">Shirts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-category="sportswear">Sportswear</a>
+            <a class="nav-link" href="#" data-category="SW">Sportswear</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-category="outwear">Outwear</a>
+            <a class="nav-link" href="#" data-category="OW">Outwear</a>
           </li>
         </ul>
-        <!-- Search Form -->
-        <form class="form-inline">
-          <div class="md-form my-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          </div>
-        </form>
       </div>
       <!-- Collapsible content -->
     </nav>
@@ -44,7 +38,7 @@
     <!-- Products Section -->
     <section class="row" id="product-list">
       {% for item in object_list %}
-      <div class="col-lg-3 col-md-6 mb-4" data-category="{{ item.category }}">
+      <div class="col-lg-3 col-md-6 mb-4 {{ item.category }}">
         <div class="card">
           <div class="view overlay">
             <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.title }}">
@@ -59,7 +53,13 @@
             <h5>
               <strong>
                 <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}</a>
-                <span class="badge badge-pill {{item.get_label_display}}-color">NEW</span>
+                <span class="badge badge-pill {{ item.get_label_display }}-color">
+                  {% if item.get_label_display == 'danger' %}
+                  SALE
+                  {% elif item.get_label_display == 'primary' %}
+                  NEW
+                  {% endif %}
+                </span>
               </strong>
             </h5>
             <h4 class="font-weight-bold blue-text">
@@ -111,6 +111,30 @@
 </main>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // Function to filter products
+    function filterProducts(category) {
+      if (category === 'all') {
+        $('#product-list .col-lg-3').show();
+      } else {
+        $('#product-list .col-lg-3').hide();
+        $(`.${category}`).show();
+        console.log(`.${category}`)
+      }
+    }
+
+    // Initial filter for 'All' category
+    filterProducts('all');
+
+    // Event listener for navigation links
+    $('.nav-link').click(function (event) {
+      event.preventDefault();
+      const category = $(this).data('category');
+      filterProducts(category);
+    });
+  });
+</script>
 
 
 {% endblock content %}
