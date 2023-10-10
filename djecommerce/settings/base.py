@@ -80,3 +80,6 @@ LOGIN_REDIRECT_URL = '/'
 # CRISPY FORMS
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Use the console email backend to redirect emails to the console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
